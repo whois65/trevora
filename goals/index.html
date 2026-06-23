@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Goals</h1>
+            <div class="header-actions">
+                <div class="search-wrap">
+                    <input type="search" id="searchInput" placeholder="Search goals...">
+                    <i class="ti ti-search"></i>
+                </div>
+                <button class="btn-icon" id="addCat" title="Add category">
+                    <i class="ti ti-folder-plus"></i>
+                    <span>Add</span>
+                </button>
+                <button class="btn-icon" id="export" title="Export data">
+                    <i class="ti ti-download"></i>
+                    <span>Export</span>
+                </button>
+                <button class="btn-icon" id="import" title="Import data">
+                    <i class="ti ti-upload"></i>
+                    <span>Import</span>
+                </button>
+                <button class="btn-icon" id="darkToggle" title="Toggle dark mode">
+                    <i class="ti ti-moon"></i>
+                </button>
+                <input type="file" id="importFile" accept=".json">
+            </div>
+        </header>
+
+        <div id="addCatRow" class="add-cat-row">
+            <button id="iconPicker" title="Pick icon">
+                <i id="catIconSelector" class="ti ti-mood-edit"></i>
+            </button>
+            <input id="catInput" placeholder="Category name..." autocomplete="off">
+            <button id="addCatBtn"><i class="ti ti-plus"></i> Add</button>
+            <button id="cancelAddCat">Cancel</button>
+        </div>
+
+        <div class="stats-row" id="statsRow"></div>
+        <div id="catList"></div>
+    </div>
+
+    <!-- Edit task modal -->
+    <div class="modal-backdrop" id="taskModal">
+        <div class="modal">
+            <h3>Edit Goal</h3>
+            <label>Goal name</label>
+            <input type="text" id="modalTaskName" autocomplete="off">
+            <label>Priority</label>
+            <select id="modalPriority">
+                <option value="">— None —</option>
+                <option value="high">🔴 High</option>
+                <option value="medium">🟡 Medium</option>
+                <option value="low">🟢 Low</option>
+            </select>
+            <label>Deadline</label>
+            <input type="date" id="modalDeadline">
+            <div class="modal-actions">
+                <button id="closeTaskModal">Cancel</button>
+                <button class="primary" id="saveTaskModal">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Icon picker modal -->
+    <div id="modalIcon">
+        <div class="modal">
+            <h3>Choose an icon</h3>
+            <div id="iconContainer"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script type="module" src="scripts/script.js"></script>
+</body>
+</html>
